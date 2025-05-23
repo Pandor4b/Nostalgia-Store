@@ -60,19 +60,7 @@ export const ProductCarousel = styled.div`
   padding: 20px 0;
 `
 
-export const CarouselTrack = styled.div`
-  display: flex;
-  transition: transform 0.5s ease;
-`
-
-export const CarouselNavigation = styled.div`
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 30px;
-`
-
-export const CarouselButton = styled.button`
+export const CarouselButton = styled.button<{ position: 'left' | 'right' }>`
   background-color: ${(props) => props.theme.colors.darkText};
   color: white;
   width: 40px;
@@ -84,11 +72,30 @@ export const CarouselButton = styled.button`
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
-  
+  position: absolute;
+  top: 50%;
+  ${(props) => (props.position === 'left' ? 'left: 0;' : 'right: 0;')}
+  transform: translateY(-50%);
+  z-index: 2;
+  opacity: 0.85;
+
   &:hover {
     background-color: ${(props) => props.theme.colors.coral};
-    transform: scale(1.1);
+    transform: translateY(-50%) scale(1.1);
   }
+`
+
+export const CarouselTrack = styled.div<{ isGrabbing: boolean }>`
+  display: flex;
+  transition: transform 0.5s ease;
+  cursor: ${(props) => (props.isGrabbing ? 'grabbing' : 'grab')};
+`
+
+export const CarouselNavigation = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
 `
 
 export const CarouselDots = styled.div`
