@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   padding-top: 70px;
   background-color: ${({ theme }) => theme.colors.cream};
+  position: relative;
 `;
 
 export const Title = styled.h1`

@@ -1,53 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./styles.ts";
 import ProductCard from "../ProductCard/index.tsx";
+import { fetchProducts } from "../../services/productsApi";
+import CheckeredBorder from "../CheckeredBorder";
 
 const ProductShowcase = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Retro Graphic Tee",
-      price: "$35.00",
-      image: "/placeholder.svg?height=300&width=250",
-    },
-    {
-      id: 2,
-      name: "Vintage Denim Jacket",
-      price: "$65.00",
-      image: "/placeholder.svg?height=300&width=250",
-    },
-    {
-      id: 3,
-      name: "Patterned Midi Dress",
-      price: "$48.00",
-      image: "/placeholder.svg?height=300&width=250",
-    },
-    {
-      id: 4,
-      name: "High-Waist Jeans",
-      price: "$55.00",
-      image: "/placeholder.svg?height=300&width=250",
-    },
-    {
-      id: 5,
-      name: "Retro Sunglasses",
-      price: "$28.00",
-      image: "/placeholder.svg?height=300&width=250",
-    },
-    {
-      id: 6,
-      name: "Platform Sandals",
-      price: "$42.00",
-      image: "/placeholder.svg?height=300&width=250",
-    },
-  ];
-
+  const [products, setProducts] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState<number | null>(null);
   const [dragStartIndex, setDragStartIndex] = useState<number | null>(null);
   const productsPerView = 3;
   const maxIndex = Math.max(0, products.length - productsPerView);
+
+  useEffect(() => {
+    fetchProducts().then((data) => {
+      setProducts(data);
+      setLoading(false);
+    });
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
@@ -87,11 +59,12 @@ const ProductShowcase = () => {
     setDragStartIndex(null);
   };
 
+  if (loading) return <div>Carregando produtos...</div>;
+
   return (
     <S.ShowcaseContainer>
-      <S.CheckeredBorder />
       <S.ShowcaseContent>
-        <S.ShowcaseHeading>Produtos mais vendidos!</S.ShowcaseHeading>
+        <S.ShowcaseHeading>HEY, THAT LOOKS GREAT ON YOU!</S.ShowcaseHeading>
         <S.ProductCarousel>
           <S.CarouselButton
             position="left"
@@ -129,7 +102,6 @@ const ProductShowcase = () => {
             →
           </S.CarouselButton>
         </S.ProductCarousel>
-
         <S.CarouselDots>
           {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <S.CarouselDot
@@ -140,7 +112,7 @@ const ProductShowcase = () => {
           ))}
         </S.CarouselDots>
       </S.ShowcaseContent>
-      <S.BottomCheckeredBorder />
+      <CheckeredBorder position="bottom" />
     </S.ShowcaseContainer>
   );
 };
