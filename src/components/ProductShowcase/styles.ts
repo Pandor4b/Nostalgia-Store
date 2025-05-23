@@ -1,0 +1,112 @@
+import styled from "styled-components"
+
+export const ShowcaseContainer = styled.section`
+  background-color: ${(props) => props.theme.colors.yellow};
+  padding: 80px 0;
+  position: relative;
+`
+
+export const CheckeredBorder = styled.div`
+  height: 20px;
+  width: 100%;
+  background-image: linear-gradient(45deg, #000 25%, transparent 25%),
+    linear-gradient(-45deg, #000 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #000 75%),
+    linear-gradient(-45deg, transparent 75%, #000 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  position: absolute;
+  top: 0;
+  left: 0;
+`
+
+export const BottomCheckeredBorder = styled(CheckeredBorder)`
+  top: auto;
+  bottom: 0;
+`
+
+export const ShowcaseContent = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+`
+
+export const ShowcaseHeading = styled.h2`
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    right: -25px;
+    width: 40px;
+    height: 40px;
+    background-color: ${(props) => props.theme.colors.blue};
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    z-index: 1;
+  }
+`
+
+export const ProductCarousel = styled.div`
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+`
+
+export const CarouselTrack = styled.div`
+  display: flex;
+  transition: transform 0.5s ease;
+`
+
+export const CarouselNavigation = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+`
+
+export const CarouselButton = styled.button`
+  background-color: ${(props) => props.theme.colors.darkText};
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: ${(props) => props.theme.colors.coral};
+    transform: scale(1.1);
+  }
+`
+
+export const CarouselDots = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+`
+
+export const CarouselDot = styled.button<{ active: boolean }>`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: ${(props) => (props.active ? props.theme.colors.darkText : "white")};
+  border: 2px solid ${(props) => props.theme.colors.darkText};
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: ${(props) => props.theme.colors.coral};
+  }
+`
