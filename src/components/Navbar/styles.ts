@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { LuShoppingCart } from 'react-icons/lu';
 
 export const Container = styled.nav`
   width: 100%;
@@ -34,25 +35,22 @@ export const NavItem = styled(Link)<{ $active: boolean }>`
   position: relative;
   padding: 8px 16px;
   border-radius: 20px;
-  border: none;
+  border: 1px solid #333;
 
   text-decoration: none;
   font-weight: 500;
   font-size: 0.9rem;
 
-  background-color: transparent;
+  background-color: ${({ $active }) => 
+    $active ? '#FF6B5E' : 'transparent'};
+  
   color: ${(props)=> props.theme.colors.darkText};
-
-   box-shadow: ${({ $active }) =>
-    $active ? '0 0 0 1px #5D2E8C' : '0 0 0 0px transparent'};
-  transition: box-shadow 0.3s ease;
+  transition: background-color 0.3s ease;
 
   &:hover {
-    box-shadow: 0 0 0 1px #5D2E8C;
-    color: #5D2E8C;
+    background-color: #FF6B5E;
   }
-   
-`;
+  `;
 
 export const RightSection = styled.div`
   display: flex;
@@ -62,7 +60,36 @@ export const RightSection = styled.div`
   cursor: pointer;
 `;
 
-const MobileMenuButton = styled.button`
+export const CartButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+`;
+
+export const CartIcon = styled(LuShoppingCart)`
+  font-size: 24px;
+  color: #333;
+  position: relative;
+`;
+
+export const CartCount = styled.span`
+  background-color: ${(props) => props.theme.colors.coral};
+  color: white;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  z-index: 2;
+`
+
+export const MobileMenuButton = styled.button`
   display: none;
   background: none;
   font-size: 24px;
