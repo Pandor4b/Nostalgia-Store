@@ -71,7 +71,7 @@ const ProductShowcase = () => {
     if (!isDragging || startX === null || dragStartIndex === null) return;
     const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
     const diff = clientX - startX;
-    const threshold = 80; 
+    const threshold = 80;
     if (diff > threshold && currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
       setIsDragging(false);
@@ -114,6 +114,7 @@ const ProductShowcase = () => {
             {products.map((product) => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 name={product.name}
                 price={product.price}
                 image={product.image}
