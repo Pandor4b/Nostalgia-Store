@@ -1,3 +1,4 @@
+import Button from '../../components/Button';
 import Navbar from '../../components/Navbar';
 import ProductShowcase from '../../components/ProductShowcase';
 import * as S from './styles';
