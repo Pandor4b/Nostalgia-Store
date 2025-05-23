@@ -91,7 +91,7 @@ const ProductShowcase = () => {
     <S.ShowcaseContainer>
       <S.CheckeredBorder />
       <S.ShowcaseContent>
-        <S.ShowcaseHeading>HEY, THAT LOOKS GREAT ON YOU!</S.ShowcaseHeading>
+        <S.ShowcaseHeading>Produtos mais vendidos!</S.ShowcaseHeading>
         <S.ProductCarousel>
           <S.CarouselButton
             position="left"
