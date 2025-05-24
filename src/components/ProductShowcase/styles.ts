@@ -20,18 +20,6 @@ export const ShowcaseHeading = styled.h2`
   display: inline-block;
   left: 50%;
   transform: translateX(-50%);
-  
-  &:after {
-    content: '';
-    position: absolute;
-    top: -15px;
-    right: -25px;
-    width: 40px;
-    height: 40px;
-    background-color: ${(props) => props.theme.colors.blue};
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    z-index: 1;
-  }
 `
 
 export const ProductCarousel = styled.div`

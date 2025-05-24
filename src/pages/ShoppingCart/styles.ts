@@ -170,7 +170,7 @@ export const RemoveButton = styled.button`
   padding: 5px;
   transition: all 0.3s ease;
   border: none;
-  curosr: pointer;
+  cursor: pointer;
   
   &:hover {
     color: ${(props) => props.theme.colors.darkText};

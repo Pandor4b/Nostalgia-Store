@@ -9,7 +9,7 @@ const Home = () => {
 
     <S.Wrapper>
       <Navbar />
-      <h1>Aqui é a home</h1>
+      {/* <h1>Aqui é a home</h1> */}
       <CheckeredBorder position="bottom" />
       <section id="all-products">
         <ProductShowcase/>
