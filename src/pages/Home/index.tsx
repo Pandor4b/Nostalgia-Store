@@ -11,7 +11,9 @@ const Home = () => {
       <Navbar />
       <h1>Aqui é a home</h1>
       <CheckeredBorder position="bottom" />
-      <ProductShowcase/>
+      <section id="all-products">
+        <ProductShowcase/>
+      </section>
     </S.Wrapper>
   )
 };

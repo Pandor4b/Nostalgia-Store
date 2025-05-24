@@ -3,8 +3,6 @@ import {
   addToCartUtil,
   updateQuantityUtil,
   removeFromCartUtil,
-  calculateCartTotal,
-  generateOrderId,
   checkoutUtil,
 } from "./CartUtils";
 import type { CartItem } from "../interfaces/CartItem";

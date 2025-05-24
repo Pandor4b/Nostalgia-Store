@@ -1,8 +1,7 @@
 import * as S from "./styles";
 import { useLocation, useNavigate } from "react-router-dom";
-import { LuShoppingCart, LuMenu } from "react-icons/lu";
-import { useState } from "react";
-import { useCart } from "../../CartContext";
+import { LuCassetteTape , LuMenu } from "react-icons/lu";
+import { useCart } from "../../hooks/useCart";
 
 const Navbar = () => {
   const location = useLocation();
@@ -11,10 +10,9 @@ const Navbar = () => {
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/#", label: "Best Sellers" },
+    { path: "#all-products", label: "Produtos" },
     { path: "/#", label: "On Sale" },
-    { path: "/#", label: "Lookbook" },
-    { path: "/#", label: "Contact" },
+    { path: "/#", label: "Contato" },
   ];
 
   return (
@@ -27,7 +25,21 @@ const Navbar = () => {
           <S.NavItem
             to={item.path}
             key={item.path}
-            $active={location.pathname === item.path}
+            $active={
+              item.path.startsWith("#")
+                ? location.hash === item.path
+                : location.pathname === item.path
+            }
+            onClick={(e) => {
+              if (item.path.startsWith("#")) {
+                e.preventDefault();
+                const el = document.getElementById(item.path.replace("#", ""));
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+                window.history.replaceState(null, "", item.path);
+              } else {
+                navigate(item.path);
+              }
+            }}
           >
             {item.label}
           </S.NavItem>
@@ -41,6 +53,15 @@ const Navbar = () => {
         <S.CartButton onClick={() => navigate("/cart")} aria-label="Carrinho">
           <S.CartCount>{cartCount}</S.CartCount>
           <S.CartIcon></S.CartIcon>
+        </S.CartButton>
+        <S.CartButton
+          onClick={() => navigate("/orders")}
+          aria-label="Histórico de Pedidos"
+          style={{ marginLeft: 12 }}
+        >
+          <span color="#333">
+            <LuCassetteTape size={24}/>
+          </span>
         </S.CartButton>
       </S.RightSection>
     </S.Container>
