@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const CartContainer = styled.section`
   background-color: ${(props) => props.theme.colors.cream};
-  padding: 60px 0;
+  padding: 8rem 0; 
   position: relative;
   min-height: 70vh;
 `
@@ -24,18 +24,6 @@ export const CartTitle = styled.h1`
   margin-bottom: 10px;
   position: relative;
   display: inline-block;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    top: -15px;
-    right: -25px;
-    width: 40px;
-    height: 40px;
-    background-color: ${(props) => props.theme.colors.coral};
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    z-index: 1;
-  }
 `
 
 export const CartSubtitle = styled.p`
@@ -77,16 +65,6 @@ export const CartItemsTitle = styled.h2`
   margin-bottom: 30px;
   position: relative;
   z-index: 1;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: ${(props) => props.theme.colors.yellow};
-  }
 `
 
 export const CartItem = styled.div`
@@ -191,6 +169,8 @@ export const RemoveButton = styled.button`
   font-size: 20px;
   padding: 5px;
   transition: all 0.3s ease;
+  border: none;
+  curosr: pointer;
   
   &:hover {
     color: ${(props) => props.theme.colors.darkText};
@@ -215,16 +195,6 @@ export const CartSummary = styled.div`
 export const SummaryTitle = styled.h2`
   font-size: 24px;
   margin-bottom: 25px;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: ${(props) => props.theme.colors.darkText};
-  }
 `
 
 export const SummaryRow = styled.div`
@@ -232,6 +202,11 @@ export const SummaryRow = styled.div`
   justify-content: space-between;
   margin-bottom: 15px;
   font-size: 16px;
+
+  .spanFee {
+    font-size: 14px;
+    color: #666;
+  }
 `
 
 export const SummaryTotal = styled.div`
@@ -244,38 +219,31 @@ export const SummaryTotal = styled.div`
   border-top: 2px solid ${(props) => props.theme.colors.darkText};
 `
 
-export const CheckoutButton = styled.button`
-  background-color: ${(props) => props.theme.colors.green};
-  color: ${(props) => props.theme.colors.darkText};
-  font-weight: 600;
-  padding: 15px;
-  border-radius: 30px;
-  font-size: 16px;
+export const RoundButton = styled.button<{
+  $variant?: "checkout" | "continue";
+  }>`
   width: 100%;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background-color: ${(props) => props.theme.colors.darkText};
-    color: white;
-    transform: translateY(-2px);
-  }
-`
-
-export const ContinueShoppingButton = styled.button`
-  background-color: transparent;
-  color: ${(props) => props.theme.colors.darkText};
-  font-weight: 600;
   padding: 14px;
   border-radius: 30px;
-  font-size: 16px;
   border: 2px solid ${(props) => props.theme.colors.darkText};
-  width: 100%;
+  font-weight: 600;
+  font-size: 16px;
+  color: ${(props) => props.theme.colors.darkText};
+  margin-bottom: 15px;
   transition: all 0.3s ease;
-  
+  cursor: pointer;
+  background-color: ${({ $variant, theme }) =>
+    $variant === "checkout"
+      ? theme.colors.green
+      : "transparent"};
+
   &:hover {
     background-color: ${(props) => props.theme.colors.darkText};
     color: white;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 `
 

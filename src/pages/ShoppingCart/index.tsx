@@ -2,12 +2,12 @@ import { useCart } from "../../hooks/useCart";
 import * as S from "./styles";
 import Navbar from "../../components/Navbar";
 import CheckeredBorder from "../../components/CheckeredBorder";
-import { LuShoppingCart, LuTrash2, LuMinus, LuPlus   } from "react-icons/lu";
-
+import { LuShoppingCart, LuTrash2, LuMinus, LuPlus } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 const ShoppingCart = () => {
   const { cartItems, updateQuantity, removeFromCart, checkout } = useCart();
-
+  const navigate = useNavigate();
   const subtotal = cartItems.reduce(
     (acc, item) =>
       acc + parseFloat(item.price.replace(",", ".")) * item.quantity,
@@ -26,10 +26,10 @@ const ShoppingCart = () => {
           </S.CartHeader>
           <S.EmptyCart>
             <S.EmptyCartIcon>
-              < LuShoppingCart />
+              <LuShoppingCart />
             </S.EmptyCartIcon>
             <S.EmptyCartText>Seu carrinho está vazio!</S.EmptyCartText>
-            <S.ShopNowButton onClick={() => (window.location.href = "/")}>
+            <S.ShopNowButton onClick={() => navigate("/")}>
               Ir as Compras
             </S.ShopNowButton>
           </S.EmptyCart>
@@ -73,7 +73,7 @@ const ShoppingCart = () => {
                   </S.QuantityButton>
                 </S.QuantityControls>
                 <S.RemoveButton onClick={() => removeFromCart(item.id)}>
-                  < LuTrash2/>
+                  <LuTrash2 />
                 </S.RemoveButton>
               </S.CartItem>
             ))}
@@ -87,12 +87,16 @@ const ShoppingCart = () => {
             </S.SummaryRow>
             <S.SummaryRow>
               <span>Frete:</span>
-              <span>{shipping === 0 ? "GRÁTIS" : `£${shipping.toFixed(2)}`}</span>
+              <span>
+                {shipping === 0 ? "GRÁTIS" : `£${shipping.toFixed(2)}`}
+              </span>
             </S.SummaryRow>
             {shipping === 0 && (
-              <S.SummaryRow style={{ fontSize: "14px", color: "#666" }}>
-                <span> Frete grátis para comrpas acima de R$50</span>
-                <span></span>
+              <S.SummaryRow>
+                <span className="spanFee">
+                  {" "}
+                  Frete grátis para comrpas acima de R$50
+                </span>
               </S.SummaryRow>
             )}
             <S.SummaryTotal>
@@ -100,12 +104,12 @@ const ShoppingCart = () => {
               <span>R$ {total.toFixed(2)}</span>
             </S.SummaryTotal>
 
-            <S.CheckoutButton>Finalizar Pedido</S.CheckoutButton>
-            <S.ContinueShoppingButton
-              onClick={checkout}
-            >
+            <S.RoundButton $variant="checkout" onClick={checkout}>
+              Finalizar Pedido
+            </S.RoundButton>
+            <S.RoundButton $variant="continue" onClick={() => navigate("/")}>
               Voltar as Compras
-            </S.ContinueShoppingButton>
+            </S.RoundButton>
           </S.CartSummary>
         </S.CartLayout>
       </S.CartContent>
