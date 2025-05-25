@@ -43,8 +43,16 @@ export const ViewButton = styled.button`
   font-size: 14px;
   width: 100%;
   transition: all 0.3s ease;
-  
   &:hover {
     background-color: ${(props) => props.theme.colors.coral};
   }
 `
+
+export const ButtonContainer = styled.div`
+  /* display: flex; */
+  justify-content: flex-end;
+
+  :nth-child(2) {
+    margin-top: 10px;
+  }
+`;

@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
-import Button from "../Button";
+import RetantugarButton from "../RetangularButton";
 import Modal from "../Modal";
 
 export type ProductCardProps = {
@@ -15,9 +15,7 @@ export type ProductCardProps = {
 const ProductCard = ({ key, name, price, image, id }: ProductCardProps) => {
   const navigate = useNavigate();
   const { addToCart, showModal, setShowModal, lastAddedItem } = useCart();
-  const handleClick = () => {
-    navigate(`/product/${id}`);
-  };
+  
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
     let priceString: string;
@@ -34,11 +32,14 @@ const ProductCard = ({ key, name, price, image, id }: ProductCardProps) => {
   };
   return (
     <>
-      <S.ProductCard key={key} onClick={handleClick}>
+      <S.ProductCard key={key}>
         <S.ProductImage src={image} alt={name} />
         <S.ProductName>{name}</S.ProductName>
-        <S.ProductPrice>{price}</S.ProductPrice>
-        <Button onClick={handleAddToCart}>Adicionar ao Carrinho</Button>
+        <S.ProductPrice>R$ {price}</S.ProductPrice>
+        <S.ButtonContainer>
+          <RetantugarButton onClick={handleAddToCart}>Adicionar ao Carrinho</RetantugarButton>
+          <RetantugarButton variant="outline" onClick={() => navigate(`/product/${id}`)}>Ver Produto</RetantugarButton>
+        </S.ButtonContainer>
       </S.ProductCard>
       {showModal && lastAddedItem && lastAddedItem.id === id && (
         <Modal
