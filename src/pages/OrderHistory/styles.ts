@@ -71,7 +71,7 @@ export const SearchInput = styled.input`
   border: 2px solid ${(props) => props.theme.colors.darkText};
   background-color: white;
   font-size: 14px;
-  min-width: 200px;
+  min-width: 300px;
   
   &:focus {
     outline: none;

@@ -6,20 +6,6 @@ export const ProductDetailContainer = styled.section`
   position: relative;
 `
 
-export const CheckeredBorder = styled.div`
-  height: 20px;
-  width: 100%;
-  background-image: linear-gradient(45deg, #000 25%, transparent 25%),
-    linear-gradient(-45deg, #000 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #000 75%),
-    linear-gradient(-45deg, transparent 75%, #000 75%);
-  background-size: 20px 20px;
-  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-`
-
 export const ProductDetailContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;

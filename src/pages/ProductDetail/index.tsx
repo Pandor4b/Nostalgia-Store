@@ -6,6 +6,7 @@ import { fetchProductById } from "../../services/productsApi";
 import { useCart } from "../../hooks/useCart";
 import Modal from "../../components/Modal";
 import { useNavigate } from "react-router-dom";
+import CheckeredBorder from "../../components/CheckeredBorder";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -59,15 +60,6 @@ const ProductDetail = () => {
             <S.ProductTitle>{product.name}</S.ProductTitle>
             <S.ProductPrice>R$ {product.price}</S.ProductPrice>
             <S.ProductDescription>{product.description}</S.ProductDescription>
-            <S.ProductDetailsTitle>Details:</S.ProductDetailsTitle>
-            <S.ProductDetailsList>
-              {product.details &&
-                product.details.map((detail: string, index: number) => (
-                  <S.ProductDetailItem key={index}>
-                    {detail}
-                  </S.ProductDetailItem>
-                ))}
-            </S.ProductDetailsList>
             <S.ButtonsContainer>
               <S.AddToCartButton
                 onClick={() => {
@@ -103,7 +95,7 @@ const ProductDetail = () => {
             )}
           </S.ProductInfoSection>
         </S.ProductDetailContent>
-        <S.CheckeredBorder />
+        <CheckeredBorder />
       </S.ProductDetailContainer>
     </div>
   );

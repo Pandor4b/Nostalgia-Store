@@ -1,5 +1,5 @@
 import * as S from "./styles";
-import React from "react";
+import { createPortal } from "react-dom";
 
 type ModalProps = {
   title: string;
@@ -16,7 +16,7 @@ const Modal: React.FC<ModalProps> = ({
   onAction,
   actionLabel,
 }) => {
-  return (
+  return createPortal(
     <S.ModalOverlay onClick={onClose}>
       <S.ModalContent onClick={(e) => e.stopPropagation()}>
         <S.ModalTitle>{title}</S.ModalTitle>
@@ -28,7 +28,8 @@ const Modal: React.FC<ModalProps> = ({
           )}
         </S.ModalActions>
       </S.ModalContent>
-    </S.ModalOverlay>
+    </S.ModalOverlay>,
+    document.body
   );
 };
 
