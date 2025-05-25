@@ -32,25 +32,54 @@ export const NavContainer = styled.div`
 `;
 
 export const NavItem = styled(Link)<{ $active: boolean }>`
-  position: relative;
-  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 12px;
   border-radius: 20px;
-  border: 1px solid #333;
-
+   border: 1px solid #333;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-
-  background-color: ${({ $active }) => 
-    $active ? '#FF6B5E' : 'transparent'};
-  
-  color: ${(props)=> props.theme.colors.darkText};
+  color: ${({ theme }) => theme.colors.darkText};
+  background-color: ${({ $active, theme }) =>
+    $active ? theme.colors.coral : "transparent"};
+  font-weight: ${({ $active }) => ($active ? "bold" : "normal")};
   transition: background-color 0.3s ease;
 
-  &:hover {
-    background-color: #FF6B5E;
+  svg {
+    font-size: 20px;
   }
-  `;
+
+  span {
+    margin-left: 6px;
+    font-size: 14px;
+  }
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.coral}66; 
+  }
+`;
+
+export const IconWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+export const CartBadge = styled.span`
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: ${({ theme }) => theme.colors.blue};
+  color: ${({ theme }) => theme.colors.darkText};
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 999px;
+  font-weight: bold;
+  min-width: 16px;
+  text-align: center;
+  line-height: 1;
+`;
 
 export const RightSection = styled.div`
   display: flex;

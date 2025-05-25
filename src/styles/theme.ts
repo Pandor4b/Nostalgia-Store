@@ -1,11 +1,5 @@
 export default {
   colors: {
-    vanilla: "#F1E8B8",
-    purple: "#5D2E8C",
-    green_100:"#CCFF66",
-    green_300:"#2EC4B6",
-    red:"#FF6666",
-    
     cream: "#FFF8E7",
     coral: "#FF6B5E",
     orange: "#FFA45C",
