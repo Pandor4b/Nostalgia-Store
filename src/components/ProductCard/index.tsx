@@ -1,19 +1,19 @@
 import * as S from "./styles";
 
 export type ProductCardProps = {
-  key: number;
+  id: number;
+  key?: number;
   name: string;
   price: string;
   image: string;
-  id: number;
   children?: React.ReactNode;
 };
 
-const ProductCard = ({ key, name, price, image, id, children }: ProductCardProps) => {
+const ProductCard = ({ id, name, price, image, children }: ProductCardProps) => {
 
   return (
     <>
-      <S.ProductCard key={key}>
+      <S.ProductCard key={id}>
         <S.ProductImage src={image} alt={name} />
         <S.ProductName>{name}</S.ProductName>
         <S.ProductPrice>R$ {price}</S.ProductPrice>

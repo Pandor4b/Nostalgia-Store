@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FavoritesContainer = styled.section`
-  background-color: ${(props) => props.theme.colors.cream};
+  background-color: ${(props) => props.theme.colors.orange};
   padding: 8rem 0;
   position: relative;
   min-height: 70vh;
@@ -49,6 +49,7 @@ export const RemoveFavoriteButton = styled.button`
   color: #FF6B5E;
   font-size: 24px;
   padding: 0;
+  z-index: 9999;
   
 `;
 

@@ -6,6 +6,7 @@ import { FiHeart } from "react-icons/fi";
 import CheckeredBorder from "../../components/CheckeredBorder";
 import ProductCard from "../../components/ProductCard";
 import RoundButton from "../../components/RoundButton";
+import RetantugarButton from "../../components/RetangularButton";
 
 const Favorites = () => {
   const { favorites, removeFromFavorites } = useFavorites();
@@ -54,12 +55,12 @@ const Favorites = () => {
                     <FiHeart fill="#FF6B5E" />
                   </S.RemoveFavoriteButton>
 
-                  <RoundButton
+                  <RetantugarButton
                     variant="outline"
                     onClick={() => navigate(`/product/${item.id}`)}
                   >
                     Ver Produto
-                  </RoundButton>
+                  </RetantugarButton>
                 </ProductCard>
               ))}
             </S.FavoritesGrid>

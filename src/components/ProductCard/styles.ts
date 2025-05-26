@@ -10,6 +10,7 @@ export const ProductCard = styled.div`
   min-width: 280px;
   margin: 0 15px;
   cursor: pointer;
+  z-index: 1;
   &:hover {
     transform: translateY(-5px);
   }

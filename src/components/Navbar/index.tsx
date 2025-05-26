@@ -1,9 +1,11 @@
+import { useState } from "react";
 import {
   LuMenu,
   LuHouse,
   LuHeart,
   LuShoppingCart,
   LuCassetteTape,
+  LuX,
 } from "react-icons/lu";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
@@ -13,6 +15,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { cartCount } = useCart();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const navItems = [
     { path: "/", label: "Home", icon: <LuHouse aria-label="Home" /> },
@@ -33,13 +36,25 @@ const Navbar = () => {
     },
   ];
 
+  const handleNav = (path: string) => {
+    setMobileOpen(false);
+    navigate(path);
+  };
+
   return (
     <S.Container>
-      <S.Logo onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
+      <S.Logo onClick={() => handleNav("/")} style={{ cursor: "pointer" }}>
         NOSTALGIA.STORE
       </S.Logo>
-      
-      <S.NavContainer>
+
+      <S.MobileMenuButton
+        aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+        onClick={() => setMobileOpen((open) => !open)}
+      >
+        {mobileOpen ? <LuX /> : <LuMenu />}
+      </S.MobileMenuButton>
+
+      <S.NavContainer $mobileOpen={mobileOpen}>
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
           return (
@@ -49,7 +64,7 @@ const Navbar = () => {
               $active={isActive}
               onClick={(e) => {
                 e.preventDefault();
-                navigate(item.path);
+                handleNav(item.path);
               }}
               title={item.label}
             >
@@ -59,16 +74,13 @@ const Navbar = () => {
                   <S.CartBadge>{cartCount}</S.CartBadge>
                 )}
               </S.IconWrapper>
-              {isActive && <span>{item.label}</span>}
+              <span>{item.label}</span>
             </S.NavItem>
           );
         })}
       </S.NavContainer>
 
-      {/* <S.MobileMenuButton>
-        <LuMenu />
-      </S.MobileMenuButton> */}
-
+      {mobileOpen && <S.Overlay onClick={() => setMobileOpen(false)} />}
     </S.Container>
   );
 };
