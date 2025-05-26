@@ -4,6 +4,7 @@ export default {
     coral: "#FF6B5E",
     orange: "#FFA45C",
     yellow: "#FFD56C",
+    purple: "#664D9A",
     blue: "#5ECEFF",
     green: "#7AE582",
     darkText: "#333333",

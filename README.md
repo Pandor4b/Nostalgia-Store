@@ -24,20 +24,6 @@ Uma loja virtual moderna focada em produtos nostálgicos, desenvolvida com React
 - 📦 Histórico de pedidos
 - 🔍 Detalhes do produto
 
----
-
-## 📁 Estrutura do Projeto
-
-```
-src/
-├── components/          # Componentes reutilizáveis
-├── contexts/           # Contextos React (Cart, Favorites)
-├── hooks/             # Hooks customizados
-├── interfaces/        # Tipos e interfaces TypeScript
-├── pages/            # Páginas da aplicação
-├── services/         # Serviços e APIs
-└── styles/           # Estilos globais e tema
-```
 
 ---
 
