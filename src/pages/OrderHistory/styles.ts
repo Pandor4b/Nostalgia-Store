@@ -275,6 +275,7 @@ export const EmptyState = styled.div`
     height: 100%;
     border: 2px dashed ${(props) => props.theme.colors.darkText};
     z-index: 0;
+    pointer-events: none; 
   }
 `
 
@@ -299,21 +300,4 @@ export const EmptySubtext = styled.p`
   margin-bottom: 30px;
   position: relative;
   z-index: 1;
-`
-
-export const ShopButton = styled.button`
-  background-color: ${(props) => props.theme.colors.coral};
-  color: white;
-  font-weight: 600;
-  padding: 12px 30px;
-  border-radius: 30px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-  
-  &:hover {
-    background-color: ${(props) => props.theme.colors.darkText};
-    transform: translateY(-2px);
-  }
 `

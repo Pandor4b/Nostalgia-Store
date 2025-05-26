@@ -219,34 +219,6 @@ export const SummaryTotal = styled.div`
   border-top: 2px solid ${(props) => props.theme.colors.darkText};
 `
 
-export const RoundButton = styled.button<{
-  $variant?: "checkout" | "continue";
-  }>`
-  width: 100%;
-  padding: 14px;
-  border-radius: 30px;
-  border: 2px solid ${(props) => props.theme.colors.darkText};
-  font-weight: 600;
-  font-size: 16px;
-  color: ${(props) => props.theme.colors.darkText};
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  background-color: ${({ $variant, theme }) =>
-    $variant === "checkout"
-      ? theme.colors.green
-      : "transparent"};
-
-  &:hover {
-    background-color: ${(props) => props.theme.colors.darkText};
-    color: white;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`
-
 export const EmptyCart = styled.div`
   text-align: center;
   padding: 60px 20px;
@@ -263,6 +235,7 @@ export const EmptyCart = styled.div`
     height: 100%;
     border: 2px dashed ${(props) => props.theme.colors.darkText};
     z-index: 0;
+    pointer-events: none; 
   }
 `
 
@@ -287,21 +260,4 @@ export const EmptyCartSubtext = styled.p`
   margin-bottom: 30px;
   position: relative;
   z-index: 1;
-`
-
-export const ShopNowButton = styled.button`
-  background-color: ${(props) => props.theme.colors.coral};
-  color: white;
-  font-weight: 600;
-  padding: 12px 30px;
-  border-radius: 30px;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 1;
-  
-  &:hover {
-    background-color: ${(props) => props.theme.colors.darkText};
-    transform: translateY(-2px);
-  }
 `

@@ -45,7 +45,7 @@ export const ModalActions = styled.div`
 `;
 
 export const ModalButton = styled.button`
-  background: ${({ theme }) => theme.colors.green_300};
+  background: ${({ theme }) => theme.colors.green};
   color: ${({ theme }) => theme.colors.darkText};
   border: 2px solid ${({ theme }) => theme.colors.darkText};
   border-radius: 8px;
@@ -55,6 +55,6 @@ export const ModalButton = styled.button`
   transition: background 0.2s;
   &:hover {
     background: ${({ theme }) => theme.colors.coral};
-    color: #fff;
+    color: ${({ theme }) => theme.colors.lightText};
   }
 `;

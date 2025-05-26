@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import CheckeredBorder from "../../components/CheckeredBorder";
 import { LuShoppingCart, LuTrash2, LuMinus, LuPlus } from "react-icons/lu";
 import { useNavigate } from "react-router-dom";
+import RoundButton from "../../components/RoundButton";
 
 const ShoppingCart = () => {
   const { cartItems, updateQuantity, removeFromCart, checkout } = useCart();
@@ -37,9 +38,9 @@ const ShoppingCart = () => {
               Parece que você ainda não adicionou nenhum item ao seu carrinho.
               Vamos encontrar algo incrível para você!
             </S.EmptyCartSubtext>
-            <S.ShopNowButton onClick={() => navigate("/")}>
+            <RoundButton color="coral" onClick={() => navigate("/")}>
               Ir às Compras
-            </S.ShopNowButton>
+            </RoundButton>
           </S.EmptyCart>
         ) : (
           <S.CartLayout>
@@ -99,12 +100,16 @@ const ShoppingCart = () => {
                 <span>R$ {total.toFixed(2)}</span>
               </S.SummaryTotal>
 
-              <S.RoundButton $variant="checkout" onClick={checkout}>
+              <RoundButton color="green" fullWidth onClick={checkout}>
                 Finalizar Pedido
-              </S.RoundButton>
-              <S.RoundButton $variant="continue" onClick={() => navigate("/")}>
+              </RoundButton>
+              <RoundButton
+                variant="outline"
+                fullWidth
+                onClick={() => navigate("/")}
+              >
                 Voltar as Compras
-              </S.RoundButton>
+              </RoundButton>
             </S.CartSummary>
           </S.CartLayout>
         )}

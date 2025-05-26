@@ -5,6 +5,7 @@ import * as S from "./styles";
 import { useNavigate } from "react-router-dom";
 import CheckeredBorder from "../../components/CheckeredBorder";
 import { LuCassetteTape } from "react-icons/lu";
+import RoundButton from "../../components/RoundButton";
 
 const OrderHistory = () => {
   const navigate = useNavigate();
@@ -49,9 +50,9 @@ const OrderHistory = () => {
               <S.EmptySubtext>
                 Você ainda não fez nenhuma compra. Que tal começar agora?
               </S.EmptySubtext>
-              <S.ShopButton onClick={() => navigate("/")}>
+              <RoundButton color="coral" onClick={() => navigate("/")}>
                 Ir às Compras
-              </S.ShopButton>
+              </RoundButton>
             </S.EmptyState>
           ) : (
             <>
