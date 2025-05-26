@@ -84,7 +84,7 @@ const ShoppingCart = () => {
               <S.SummaryRow>
                 <span>Frete:</span>
                 <span>
-                  {shipping === 0 ? "GRÁTIS" : `£${shipping.toFixed(2)}`}
+                  {shipping === 0 ? "GRÁTIS" : `R$${shipping.toFixed(2)}`}
                 </span>
               </S.SummaryRow>
               {shipping === 0 && (
