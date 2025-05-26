@@ -1,54 +1,86 @@
-# React + TypeScript + Vite
+# 🎵 Nostalgia Store
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma loja virtual moderna focada em produtos nostálgicos, desenvolvida com React e TypeScript. O projeto oferece uma experiência de compra intuitiva com um design retrô-moderno.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- **React** (v19.1.0)
+- **TypeScript** (v5.8.3)
+- **Vite** (v6.3.5)
+- **Styled Components** (v6.1.18)
+- **React Router DOM** (v7.6.0)
+- **React Icons** (v5.5.0)
+- **Swiper** (v11.2.7)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## ✨ Funcionalidades
+
+- 🏠 Página inicial com showcase de produtos
+- ❤️ Lista de favoritos
+- 🛍️ Carrinho de compras
+- 📦 Histórico de pedidos
+- 🔍 Detalhes do produto
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/          # Componentes reutilizáveis
+├── contexts/           # Contextos React (Cart, Favorites)
+├── hooks/             # Hooks customizados
+├── interfaces/        # Tipos e interfaces TypeScript
+├── pages/            # Páginas da aplicação
+├── services/         # Serviços e APIs
+└── styles/           # Estilos globais e tema
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Como Rodar o Projeto
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+1. Clone o repositório
+
+```bash
+git clone https://github.com/Pandor4b/Nostalgia-Store.git
+cd Nostalgia-Store
 ```
+
+2. Instale as dependências
+
+```bash
+npm install
+```
+
+3. Rode o projeto em desenvolvimento
+
+```bash
+npm run dev
+```
+
+---
+
+
+## 🎨 Créditos pelo Design
+
+Este projeto foi inspirado nos incríveis designs criados por **Sarah St Maur**:
+
+- [GRANDMA'S ATTIC - Vintage Clothing Website](https://dribbble.com/shots/24825072-GRANDMA-S-ATTIC-Vintage-Clothing-Website)
+- [GRANDMA'S ATTIC - Vintage Clothing Product Page](https://dribbble.com/shots/24828421-GRANDMA-S-ATTIC-Vintage-Clothing-Product-Page)
+
+Agradecimentos especiais à Sarah por criar designs tão inspiradores que combinam perfeitamente elementos vintage com uma interface moderna e intuitiva.
+
+---
+
+## 📜 Scripts Disponíveis
+
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Gera a build de produção
+- `npm run lint` - Executa o linter no código
+- `npm run preview` - Visualiza a build de produção localmente
+
+---
