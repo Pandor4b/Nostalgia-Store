@@ -1,4 +1,4 @@
-# 🎵 Nostalgia Store
+# 📼 Nostalgia Store
 
 Uma loja virtual moderna focada em produtos nostálgicos, desenvolvida com React e TypeScript. O projeto oferece uma experiência de compra intuitiva com um design retrô-moderno.
 
