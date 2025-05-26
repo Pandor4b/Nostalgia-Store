@@ -12,7 +12,6 @@ Uma loja virtual moderna focada em produtos nostálgicos, desenvolvida com React
 - **Styled Components** (v6.1.18)
 - **React Router DOM** (v7.6.0)
 - **React Icons** (v5.5.0)
-- **Swiper** (v11.2.7)
 
 ---
 
