@@ -17,6 +17,11 @@ const Navbar = () => {
   const navItems = [
     { path: "/", label: "Home", icon: <LuHouse aria-label="Home" /> },
     {
+      path: "/favorites",
+      label: "Favoritos",
+      icon: <LuHeart aria-label="Favoritos" />,
+    },
+    {
       path: "/cart",
       label: "Carrinho",
       icon: <LuShoppingCart aria-label="Carrinho" />,
@@ -60,9 +65,9 @@ const Navbar = () => {
         })}
       </S.NavContainer>
 
-      <S.MobileMenuButton>
+      {/* <S.MobileMenuButton>
         <LuMenu />
-      </S.MobileMenuButton>
+      </S.MobileMenuButton> */}
 
     </S.Container>
   );

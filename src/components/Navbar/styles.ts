@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { LuShoppingCart } from 'react-icons/lu';
 
 export const Container = styled.nav`
   width: 100%;
@@ -15,6 +14,7 @@ export const Container = styled.nav`
   left: 0;
   z-index: 1000;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  border-bottom: 3px solid ${({ theme }) => theme.colors.purple};
 `;
 
 export const Logo = styled.div`
@@ -79,27 +79,6 @@ export const CartBadge = styled.span`
   min-width: 16px;
   text-align: center;
   line-height: 1;
-`;
-
-export const RightSection = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: #333;
-  cursor: pointer;
-`;
-
-export const CartButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-`;
-
-export const CartIcon = styled(LuShoppingCart)`
-  font-size: 24px;
-  color: #333;
-  position: relative;
 `;
 
 export const CartCount = styled.span`

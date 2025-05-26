@@ -37,7 +37,7 @@ export const ProductPrice = styled.p`
 
 export const ViewButton = styled.button`
   background-color: ${(props) => props.theme.colors.darkText};
-  color: white;
+  color: ${(props) => props.theme.colors.lightText};
   font-weight: 600;
   padding: 8px 0;
   font-size: 14px;

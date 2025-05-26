@@ -4,9 +4,12 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchProductById } from "../../services/productsApi";
 import { useCart } from "../../hooks/useCart";
+import { useFavorites } from "../../contexts/FavoritesContext";
 import Modal from "../../components/Modal";
 import { useNavigate } from "react-router-dom";
 import CheckeredBorder from "../../components/CheckeredBorder";
+import { FiHeart } from "react-icons/fi";
+import RoundButton from "../../components/RoundButton";
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,6 +17,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const { addToCart, showModal, setShowModal, lastAddedItem } = useCart();
+  const { addToFavorites, removeFromFavorites, isFavorite } = useFavorites();
 
   useEffect(() => {
     if (id) {
@@ -23,6 +27,23 @@ const ProductDetail = () => {
       });
     }
   }, [id]);
+
+  const handleFavorite = () => {
+    if (!product) return;
+
+    const favorite = {
+      id: Number(product.id),
+      name: product.name,
+      price: product.price,
+      image: product.image,
+    };
+
+    if (isFavorite(Number(product.id))) {
+      removeFromFavorites(Number(product.id));
+    } else {
+      addToFavorites(favorite);
+    }
+  };
 
   if (loading)
     return (
@@ -61,7 +82,8 @@ const ProductDetail = () => {
             <S.ProductPrice>R$ {product.price}</S.ProductPrice>
             <S.ProductDescription>{product.description}</S.ProductDescription>
             <S.ButtonsContainer>
-              <S.AddToCartButton
+              <RoundButton
+                color="green"
                 onClick={() => {
                   let priceString: string;
                   if (typeof product.price === "number") {
@@ -78,8 +100,19 @@ const ProductDetail = () => {
                 }}
               >
                 Adicionar ao Carrinho
-              </S.AddToCartButton>
-              <S.WishlistButton>Adicionar aos Favoritos</S.WishlistButton>
+              </RoundButton>
+
+              <RoundButton variant="outline" onClick={handleFavorite}>
+                <FiHeart
+                  style={{
+                    fill: isFavorite(Number(product.id)) ? "#FF6B5E" : "none",
+                    marginRight: "8px",
+                  }}
+                />
+                {isFavorite(Number(product.id))
+                  ? "Remover dos Favoritos"
+                  : "Adicionar aos Favoritos"}
+              </RoundButton>
             </S.ButtonsContainer>
             {showModal && lastAddedItem && lastAddedItem.id === product.id && (
               <Modal

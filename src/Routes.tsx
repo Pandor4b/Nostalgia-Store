@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import ShoppingCart from "./pages/ShoppingCart";
 import OrderHistory from "./pages/OrderHistory";
+import Favorites from "./pages/Favorites";
 
 export const Router = createBrowserRouter([
   {
@@ -21,4 +22,8 @@ export const Router = createBrowserRouter([
     path: "/orders",
     element: <OrderHistory />,
   },
+  {
+    path:"/favorites",
+    element: <Favorites/>
+  }
 ]);
